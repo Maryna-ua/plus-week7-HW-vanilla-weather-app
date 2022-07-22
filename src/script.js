@@ -63,11 +63,10 @@ if (now.getMinutes() < 10) {
 
 //search engine
 function showWeather(response) {
-  console.log(response.data);
   document.querySelector("h2").innerHTML = response.data.name;
-  document.querySelector("#degree").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  let tempElement = document.querySelector("#temp");
+  celsiusTemp = response.data.main.temp;
+  tempElement.innerHTML = Math.round(celsiusTemp);
   document.querySelector("#humidity").innerHTML = `${Math.round(
     response.data.main.humidity
   )}%`;
@@ -94,23 +93,28 @@ let searchCity = document.querySelector("#choice-city");
 searchCity.addEventListener("submit", selectCity);
 
 //°C|F
-let degrees = document.querySelector("#degree");
-let celsius = 29;
-let fahrenheit = Math.round(celsius * 1.8 + 32);
+
 function convertToF(event) {
   event.preventDefault();
+  let degrees = document.querySelector("#temp");
+  let fahrenheit = Math.round(celsiusTemp * 1.8 + 32);
   degrees.innerHTML = fahrenheit;
+  temperatureC.classList.remove("active");
+  temperatureF.classList.add("active");
 }
 
-let temperatureF = document.querySelector("#fahrenheit");
+let temperatureF = document.querySelector("#fahrenheit-link");
 temperatureF.addEventListener("click", convertToF);
 
 function convertToC(event) {
   event.preventDefault();
-  degrees.innerHTML = celsius;
+  let degrees = document.querySelector("#temp");
+  degrees.innerHTML = Math.round(celsiusTemp);
+  temperatureC.classList.add("active");
+  temperatureF.classList.remove("active");
 }
 
-let temperatureC = document.querySelector("#celsius");
+let temperatureC = document.querySelector("#celsius-link");
 temperatureC.addEventListener("click", convertToC);
 
 function showPosition(position) {
