@@ -63,6 +63,7 @@ if (now.getMinutes() < 10) {
 
 //search engine
 function showWeather(response) {
+  console.log(response.data);
   document.querySelector("h2").innerHTML = response.data.name;
   let tempElement = document.querySelector("#temp");
   celsiusTemp = response.data.main.temp;
@@ -73,6 +74,14 @@ function showWeather(response) {
   document.querySelector("#wind").innerHTML = `${Math.round(
     response.data.wind.speed
   )}km/h`;
+  document.querySelector("#sky").innerHTML =
+    response.data.weather[0].description;
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 function search(city) {
   let apiKey = "1c6f613839ce6b71f2df6e20804a91d8";
