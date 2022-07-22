@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&family=Rammetto+One&family=Source+Code+Pro:wght@200&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://kit.fontawesome.com/e462dbf69e.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+
+  <body>
+		<video src="img/sky-video2.mp4" muted autoplay loop></video>
+  <form id="choice-city">
+
+      <div  class="weather-container">
+      
+        <div class="city-choice">
+       <input type="search" id="city-name" placeholder="Enter a city name"  autocomplete="off" autofocus />
+        <button class="submit"><i class="fa-solid fa-location-arrow"></i></button>
+        <button id="current-location">Current location</button>
+        </div>
+<section>
+
+
+<h1>
+          <span id="current-day">Sat</span>
+          <span class="current-time" id="current-hours">13</span>
+          <span class="current-time" id="current-minutes">:21</span>
+        </h1>
+
+
+        <h2 id="city"></h2>
+         <div class="indicators">
+          <div><i class="fa-solid fa-droplet"></i> Humidity: <span id="humidity"></span></div>
+          <div><i class="fa-solid fa-wind"></i></i>Wind: <span id="wind"></span></div>
+ </div>
+       
+        <h3><span  id="main">
+          </span>
+          <span id="degree"></span>
+          <span id="celsius">
+            <a class="transform" href="#">°C</a></span>
+
+             
+          <span id="fahrenheit">
+            <a class="transform" href="#">|°F</a></span>
+        </h3>
+        <div class="tips">It's perfect time to smile</div>
+</section>
+
+        
+
+        <div class="forecast-container">
+          <div class="row">
+            <div class="col">
+      
+              <div class="card">
+                <span class="temp-day">21°C</span>
+                <br />
+                <span class="emoji"><i class="fa-solid fa-sun"></i></span>
+                <br />
+                <span class="temp-night">/15°C</span>
+                <br />
+                <span class="weekday">Sun</span>
+              </div>
+            </div>
+            <div class="col">
+             
+              <div class="card">
+                <span class="temp-day">19°C</span>
+                <br />
+                <span class="emoji"><i class="fa-solid fa-cloud-sun"></i></span>
+                <br />
+                <span class="temp-night">/13°</span>
+                <br />
+                <span class="weekday">Mon</span>
+              </div>
+            </div>
+            <div class="col">
+             
+              <div class="card">
+                <span class="temp-day">18°C</span>
+                <br />
+                <span class="emoji"><i class="fa-solid fa-cloud-sun"></i></span>
+                <br />
+                <span class="temp-night">/15°</span>
+                <br />
+                <span class="weekday">Tue</span>
+              </div>
+            </div>
+            <div class="col">
+             
+              <div class="card">
+                <span class="temp-day">20°C</span>
+                <br />
+                <span class="emoji"><i class="fa-solid fa-cloud-sun"></i></span>
+                <br />
+                <span class="temp-night">/14°</span>
+                <br />
+                <span class="weekday">Wed</span>
+              </div>
+            </div>
+            <div class="col">
+              
+              <div class="card">
+                <span class="temp-day">23°C</span>
+                <br />
+                <span class="emoji"><i class="fa-solid fa-sun"></i></span>
+                <br />
+                <span class="temp-night">/16°</span>
+                <br />
+                <span class="weekday">Thu</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+          
+      </div>
+     <div class="creator"><small>
+    <a class="source"
+    href="https://github.com/Maryna-ua/plus-week-6" target="_blank">Open-source code</a> by Maryna Kodola</small></div>
+      </form>
+     
+  
+   
+    <script src="src/script.js"></script>
+
+  </body>
+</html>
