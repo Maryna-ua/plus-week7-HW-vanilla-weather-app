@@ -7,7 +7,7 @@ video {
   width: 100%;
   height: 120%;
   object-fit: cover;
-  opacity: 50%;
+  opacity: 20%;
   z-index: -1;
 }
 
@@ -18,7 +18,7 @@ form {
   margin: 75px auto;
   max-width: 500px;
   height: 550px;
-  background: rgb(104, 97, 117);
+  background: rgb(96 95 97);
   opacity: 75%;
   border-radius: 10px;
   box-shadow: 0.5px 1px 3px rgb(133, 133, 133);
@@ -49,7 +49,7 @@ button {
   transition: all 150ms ease-in-out;
 }
 button:hover {
-  background-color: rgb(46, 49, 68);
+  background-color: rgb(96 95 97);
   color: white;
   cursor: pointer;
 }
@@ -106,8 +106,8 @@ h3 {
 }
 
 #sky {
-  margin-bottom: 23px;
-  margin-left: 32px;
+  margin-bottom: 30px;
+  margin-left: 15px;
   text-align: left;
   color: white;
   text-shadow: 3px 3px 3px rgb(58, 61, 79);
@@ -123,14 +123,13 @@ h3 {
 .col-2 {
   text-shadow: 0.5px 1.5px 1.5px rgb(45%, 43%, 63%);
   padding: 2px;
-  height: 10px;
 }
 
 .card {
   max-width: 79px;
   color: white;
   border: 1px solid white;
-  background: rgb(104, 97, 117);
+  background: rgb(96 95 97);
 }
 
 .temp-day {
@@ -143,9 +142,9 @@ br {
   font-size: 22px;
 }
 .temp-night {
-  color: rgb(75, 75, 75);
+  color: black;
   font-size: 14px;
-  text-shadow: 0.5px 1.5px 1.5px white;
+  text-shadow: 0.5px 1.5px 1.5px rgb(58, 61, 79);
 }
 .weekday {
   font-weight: 600;
