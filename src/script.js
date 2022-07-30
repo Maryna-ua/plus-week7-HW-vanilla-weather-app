@@ -61,6 +61,33 @@ if (now.getMinutes() < 10) {
   currentMinutes.innerHTML = `:${now.getMinutes()}`;
 }
 
+// forecast
+function showForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` <div class="col-2">
+              <div class="card">
+                <div class="temp-day">21°C</div>
+                <img
+                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  alt=" "
+                  id="icon"
+                />
+                <span class="temp-night">/15°C</span>
+                </br>
+                <span class="weekday">${day}</span>
+              </div>
+            </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecast.innerHTML = forecastHTML;
+}
+
 //search engine
 function showWeather(response) {
   console.log(response.data);
@@ -144,3 +171,4 @@ let locationButton = document.querySelector("#current-location");
 locationButton.addEventListener("click", getLocation);
 
 search("kyiv");
+showForecast();
