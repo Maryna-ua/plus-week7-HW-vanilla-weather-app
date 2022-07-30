@@ -61,32 +61,50 @@ if (now.getMinutes() < 10) {
   currentMinutes.innerHTML = `:${now.getMinutes()}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 // forecast
 function showForecast(response) {
   console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
+
   let forecastHTML = `<div class="row">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      ` <div class="col-2">
+
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        ` <div class="col-2">
               <div class="card">
-                <div class="temp-day">21°C</div>
+                <div class="temp-day">${Math.round(
+                  forecastDay.temp.max
+                )}°C</div>
                 <img
-                  src="http://openweathermap.org/img/wn/10d@2x.png"
+                  src="http://openweathermap.org/img/wn/${
+                    forecastDay.weather[0].icon
+                  }@2x.png"
                   alt=" "
                   id="icon"
                 />
-                <span class="temp-night">/15°C</span>
+                <span class="temp-night">/${Math.round(
+                  forecastDay.temp.min
+                )}°C</span>
                 </br>
-                <span class="weekday">${day}</span>
+                <span class="weekday">${formatDay(forecastDay.dt)}</span>
               </div>
             </div>`;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
-  forecast.innerHTML = forecastHTML;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastDay.temp.min);
 }
 
 function getForecast(coord) {
@@ -119,6 +137,7 @@ function showWeather(response) {
 
   getForecast(response.data.coord);
 }
+
 function search(city) {
   let apiKey = "1c6f613839ce6b71f2df6e20804a91d8";
   let units = "metric";
@@ -180,4 +199,3 @@ let locationButton = document.querySelector("#current-location");
 locationButton.addEventListener("click", getLocation);
 
 search("kyiv");
-showForecast();
