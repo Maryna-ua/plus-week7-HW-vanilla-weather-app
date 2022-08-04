@@ -103,6 +103,8 @@ function search(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
 
   axios.get(apiUrl).then(showWeather);
+  let newSearch = document.querySelector("#choice-city");
+  newSearch.addEventListener("submit", convertToC);
 }
 
 function selectCity(event) {
@@ -156,5 +158,6 @@ function getLocation(event) {
 }
 let locationButton = document.querySelector("#current-location");
 locationButton.addEventListener("click", getLocation);
+locationButton.addEventListener("click", convertToC);
 
 search("kyiv");
