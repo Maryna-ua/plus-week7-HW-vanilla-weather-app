@@ -75,7 +75,6 @@ h2 {
 }
 h3 {
   position: relative;
-  right: 50px;
   top: 15px;
   font-size: 70px;
   line-height: 60px;
@@ -163,4 +162,20 @@ br {
 source:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+@media (max-width: 670px) {
+  .indicators {
+    display: none;
+  }
+  h3 {
+    font-size: 60px;
+    line-height: 1;
+  }
+  #sky {
+    margin-bottom: 60px;
+  }
+  .row {
+    margin: 0 auto;
+  }
 }
